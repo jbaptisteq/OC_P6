@@ -1,5 +1,5 @@
 # OpenClassroom - PHP/Symphony Developer 
-# Project 6 _ Community site on Snowboarding
+# Project 6 _ Community website on Snowboarding
 
 ## Link of the Path
  ```
