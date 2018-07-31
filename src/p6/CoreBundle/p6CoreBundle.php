@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle;
+namespace p6\CoreBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
+class p6CoreBundle extends Bundle
 {
 }
