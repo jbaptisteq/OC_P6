@@ -13,6 +13,7 @@
 </head>
 <body class="body" id="page-top">
     <section class="header">
+
         {% block header %}
         <nav id="mainNav" class="navbar navbar-default navbar-custom container normal">
             <div>
@@ -42,46 +43,38 @@
             </div>
         </nav>
         {% endblock %}
-        <!-- Header de l'index -->
-		<div class="snowframe container">
-			<div class="snowfond">
-				<div class="snowname indie hit-the-floor">
-					<p class="boxhook">La référence par les pratiquants</p>
-				</div>
-			</div>
-		</div>
-        <div class="arrowtricks">
-            <a href="#trickslist"><i class="fas fa-arrow-down"></i></a>
-        </div>
+        {% include "p6CoreBundle::logo.html.twig" %}
+
     </section>
 
     {% block body %}
     {% endblock %}
 
-    <footer>
-        <div class="footer-bar container">
-            <p class="col-md-12 merribold copy normal">Copyright @2018</p>
-            <ul class="container small navbar-custom text-center">
-                <li class="col-xs-4 align-center nodec">
-                    <a href="#page-top"><i class="fas fa-home"></i></a>
-                </li>
-                <li class="col-xs-4 align-center nodec">
-                    <a href=""><i class="fas fa-bookmark"></i></a>
-                </li>
-                <li class="col-xs-4 align-center nodec">
-                    <a href=""><i class="fas fa-sign-in-alt"></i></a>
-                </li>
-                <div class="col-md-4 align-center nodec hidden">
-                    <a href=""><i class="fas fa-sign-out-alt"></i></a>
-                </div>
-            </ul>
+    <section class="footer">
+        <div class="footer-bar container desktop">
+            <p class="merribold copy normal">Copyright @2018</p>
         </div>
-    </footer>
+        <div class="container mobile footer-bar">
+            <div class="row">
+                <ul class>
+                    <li class="col-xs-4 align-center nodec">
+                        <a href="#page-top"><i class="fas fa-home"></i></a>
+                    </li>
+                    <li class="col-xs-4 align-center nodec">
+                        <a href=""><i class="fas fa-bookmark"></i></a>
+                    </li>
+                    <li class="col-xs-4 align-center nodec">
+                        <a href=""><i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     {% block javascripts %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    {% endblock %}
+{% endblock %}
 
 </body>
 </html>
