@@ -25,6 +25,10 @@
     list-style-type: none;
 }
 
+.logo-arrow{
+    padding-right: 5px;
+}
+
 #tricks{
     margin-top: 25px;
     margin-bottom: 25px;
@@ -84,6 +88,8 @@
         background-repeat: no-repeat;
         background-position: top center;
         background-size: contain;
+        width: 285px;
+        height: 200px;
     }
 
     .minitest{
@@ -167,10 +173,10 @@
 
     .header{
         background: url('../images/indexsmall2.jpg');
-        height: 550px;
+        height: 525px;
         width: 100%;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: top center;
         position : relative;
         background-size: contain;
     }
@@ -213,6 +219,8 @@
         background-repeat: no-repeat;
         background-position: top center;
         background-size: contain;
+        width: 285px;
+        height: 200px;
     }
     .minitest{
         min-height: 178px;

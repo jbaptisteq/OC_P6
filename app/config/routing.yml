@@ -1,6 +1,6 @@
-p6_user:
+p6UserBundle:
     resource: "@p6UserBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /user/
 
 p6CoreBundle:
     resource: "@p6CoreBundle/Resources/config/routing.yml"
