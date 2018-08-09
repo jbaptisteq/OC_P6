@@ -5,3 +5,6 @@ services:
 #
     p6\CoreBundle\DataFixtures\Loadtrick:
         tags: [doctrine.fixture.orm]
+
+    p6\CoreBundle\DataFixtures\Loadcategory:
+        tags: [doctrine.fixture.orm]

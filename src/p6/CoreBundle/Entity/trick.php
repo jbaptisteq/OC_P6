@@ -5,54 +5,59 @@ namespace p6\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * trick
- * 
- * @ORM\Table(name="trick")
- * @ORM\Entity(repositoryClass="p6\CoreBundle\Repository\trickRepository")
- */
+* trick
+*
+* @ORM\Table(name="trick")
+* @ORM\Entity(repositoryClass="p6\CoreBundle\Repository\trickRepository")
+*/
 class trick
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
+    * @var int
+    *
+    * @ORM\Column(name="id", type="integer")
+    * @ORM\Id
+    * @ORM\GeneratedValue(strategy="AUTO")
+    */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255, unique=true)
-     */
+    * @var string
+    *
+    * @ORM\Column(name="name", type="string", length=255, unique=true)
+    */
     private $name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text")
-     */
+    * @var string
+    *
+    * @ORM\Column(name="description", type="text")
+    */
     private $description;
 
+    /**
+    * @ORM\ManyToOne(targetEntity="p6\CoreBundle\Entity\category")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $category;
 
     /**
-     * Get id.
-     *
-     * @return int
-     */
+    * Get id.
+    *
+    * @return int
+    */
     public function getId()
     {
         return $this->id;
     }
 
     /**
-     * Set name.
-     *
-     * @param string $name
-     *
-     * @return trick
-     */
+    * Set name.
+    *
+    * @param string $name
+    *
+    * @return trick
+    */
     public function setName($name)
     {
         $this->name = $name;
@@ -61,22 +66,22 @@ class trick
     }
 
     /**
-     * Get name.
-     *
-     * @return string
-     */
+    * Get name.
+    *
+    * @return string
+    */
     public function getName()
     {
         return $this->name;
     }
 
     /**
-     * Set description.
-     *
-     * @param string $description
-     *
-     * @return trick
-     */
+    * Set description.
+    *
+    * @param string $description
+    *
+    * @return trick
+    */
     public function setDescription($description)
     {
         $this->description = $description;
@@ -85,12 +90,23 @@ class trick
     }
 
     /**
-     * Get description.
-     *
-     * @return string
-     */
+    * Get description.
+    *
+    * @return string
+    */
     public function getDescription()
     {
         return $this->description;
     }
+
+    public function setCategory(category $category = null)
+    {
+        $this->category = $category;
+    }
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
 }
