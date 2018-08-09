@@ -1,0 +1,232 @@
+/* Style for all resolution */
+
+@font-face {
+    font-family: merri;
+    src: url(fonts/Merriweather-Regular.ttf);
+}
+.merribold {
+    font-family: "merri", Times, serif;
+    font-style: bold;
+}
+.indie{
+    font-family: 'Indie Flower', cursive, Times, serif;
+}
+
+.arrowtricks{
+    color: black;
+    font-size: 3em;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    padding-left: 3px;
+}
+
+.nodec{
+    list-style-type: none;
+}
+
+#tricks{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.red{
+    text-align: center;
+    color: red;
+}
+.blue{
+    text-align: center;
+    color: blue;
+}
+
+/* Style for desktop */
+
+@media only screen and (min-width: 668px)
+{
+    .logo{
+        font-size: 1.2em;
+        font-weight: 600;
+        letter-spacing: 4px;
+    }
+
+    #mainNav{
+        font-size: 1.4em;
+        width: 100%;
+    }
+
+    .body{
+        margin:0;
+        padding:0;
+        height:100%;
+    }
+    .small{
+        display: none;
+    }
+
+    .mobile{
+        display: none;
+    }
+
+    .desktop{
+        width: 90%;
+        margin-left:8%;
+    }
+
+    .trickblock{
+        margin:15px 15px 15px 15px;
+        -moz-box-shadow: 6px 11px 21px #000000;
+        -webkit-box-shadow: 6px 11px 21px #000000;
+        box-shadow: 6px 11px 21px #000000;
+        border-radius: 4px;
+        background-color: white;
+        opacity: 0.7;
+        background: url('../images/minitest.jpg');
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: contain;
+    }
+
+    .minitest{
+
+        min-height: 178px;
+        border-radius: 4px;
+    }
+
+
+    .header{
+        background: url('../images/index2.jpg');
+        height: 900px;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-size: auto;
+        position : relative;
+    }
+
+    .snowname{
+        font-weight: 600;
+        font-size: 4em;
+        letter-spacing: 3px;
+        padding-left: 25%;
+        padding-top: 25%;
+    }
+
+    .hit-the-floor {
+        text-align: center;
+        padding-top: 15%;
+        padding-left: 15%;
+        padding-right: 15%;
+        color: #fff;
+        font-size: 5em;
+        font-weight: bold;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+    }
+
+    .boxhook{
+        -moz-box-shadow: 6px 11px 21px #000000;
+        -webkit-box-shadow: 6px 11px 21px #000000;
+        box-shadow: 6px 11px 21px #000000;
+        border-radius: 4px;
+        background-color: white;
+        opacity: 0.7;
+        margin-top: 10%;
+    }
+
+    .footer{
+        min-height: 50px;
+        width: 100%;
+        border: 1px solid transparent;
+        border-color: #e7e7e7;
+        background-color: #f8f8f8;
+    }
+    .footer-bar>p{
+        display: block;
+        margin-top: 15px;
+    }
+}
+
+/* Style for smartphone */
+
+@media only screen and (max-width: 668px)
+{
+    .body{
+        margin:0;
+        padding-bottom: 50px;
+        height:100%;
+        position:relative;
+    }
+    .normal{
+        display: none;
+    }
+    .small{
+        font-size: 2em;
+    }
+
+    .desktop{
+        display: none;
+    }
+
+    .header{
+        background: url('../images/indexsmall2.jpg');
+        height: 550px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        position : relative;
+        background-size: contain;
+    }
+
+    .snowfond{
+        color: white;
+        opacity: 0.7;
+    }
+
+    .hit-the-floor {
+        text-align: center;
+        padding-top: 15%;
+        padding-left: 5%;
+        padding-right: 5%;
+        color: #fff;
+        font-size: 2.5em;
+        font-weight: bold;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+    }
+
+    .boxhook{
+        -moz-box-shadow: 6px 11px 21px #000000;
+        -webkit-box-shadow: 6px 11px 21px #000000;
+        box-shadow: 6px 11px 21px #000000;
+        border-radius: 4px;
+        background-color: white;
+        opacity: 0.7;
+        margin-top: 10%;
+    }
+
+    .trickblock{
+        margin: 15px 2px 2px 2px;
+        -moz-box-shadow: 6px 11px 21px #000000;
+        -webkit-box-shadow: 6px 11px 21px #000000;
+        box-shadow: 6px 11px 21px #000000;
+        border-radius: 4px;
+        background-color: white;
+        opacity: 0.7;
+        background: url('../images/minitest.jpg');
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: contain;
+    }
+    .minitest{
+        min-height: 178px;
+        border-radius: 4px;
+    }
+
+    .footer-bar{
+        position: fixed;
+        bottom: 0;
+        max-height: 50px;
+        width: 100%;
+        border: 1px solid transparent;
+        border-color: #e7e7e7;
+        background-color: #f8f8f8;
+        font-size: 2em;
+    }
+}

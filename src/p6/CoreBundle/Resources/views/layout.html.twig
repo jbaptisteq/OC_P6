@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}SnowTricks{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=2" />
+    {% block stylesheet %}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    {% endblock %}
+</head>
+<body class="body" id="page-top">
+    <section class="header">
+
+        {% block header %}
+        <nav id="mainNav" class="navbar navbar-default navbar-custom container normal">
+            <div>
+                <div>
+                    <ul class="nav navbar-nav navbar-left indie">
+                        <li class="page-scroll">
+                            <h1 class="logo">SnowTricks</h1>
+                        </li>
+                    </ul>
+                </div>
+                <div class="merribold">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="page-scroll">
+                            <a href="#page-top">Home</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#trickslist">Tricks</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="">Sign in</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="">Sign up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% endblock %}
+        {% include "p6CoreBundle::logo.html.twig" %}
+
+    </section>
+
+    {% block body %}
+    {% endblock %}
+
+    <section class="footer">
+        <div class="footer-bar container desktop">
+            <p class="merribold copy normal">Copyright @2018</p>
+        </div>
+        <div class="container mobile footer-bar">
+            <div class="row">
+                <ul class>
+                    <li class="col-xs-4 align-center nodec">
+                        <a href="#page-top"><i class="fas fa-home"></i></a>
+                    </li>
+                    <li class="col-xs-4 align-center nodec">
+                        <a href=""><i class="fas fa-bookmark"></i></a>
+                    </li>
+                    <li class="col-xs-4 align-center nodec">
+                        <a href=""><i class="fas fa-sign-in-alt"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    {% block javascripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+{% endblock %}
+
+</body>
+</html>
