@@ -1,7 +1,22 @@
-p6UserBundle:
-    resource: "@p6UserBundle/Resources/config/routing.yml"
-    prefix:   /user/
-
-p6CoreBundle:
+index:
     resource: "@p6CoreBundle/Resources/config/routing.yml"
     prefix:   /
+
+homepage:
+    path:    /
+    defaults: { _controller: p6CoreBundle:Index:index }
+
+register:
+    path:     /register
+    defaults: { _controller: p6UserBundle:Registration:register }
+
+login:
+    path: /login
+    defaults: { _controller: p6UserBundle:Security:login}
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /Logout
+    defaults: { _controller: p6CoreBundle:Index:index }

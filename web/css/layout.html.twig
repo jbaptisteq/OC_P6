@@ -11,9 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     {% endblock %}
 </head>
-
 <body class="body" id="page-top">
-
     <section>
         <nav id="mainNav" class="navbar navbar-default navbar-custom container normal">
             <div>
@@ -50,10 +48,13 @@
         </nav>
     </section>
 
+    <section class="header">
 
+        {% block header %}
 
-    {% block header %}
-    {% endblock %}
+        {% endblock %}
+        {% include "p6CoreBundle::logo.html.twig" %}
+    </section>
 
     {% block body %}
     {% endblock %}
@@ -66,18 +67,18 @@
             <div class="row">
                 <ul class>
                     <li class="col-xs-4 align-center nodec">
-                        <a href="{{ path('homepage') }}"><i class="fas fa-home"></i></a>
+                        <a href=""><i class="fas fa-home"></i></a>
                     </li>
                     <li class="col-xs-4 align-center nodec">
-                        <a href="" id="bookmark-this"><i class="fas fa-bookmark"></i></a>
+                        <a href=""><i class="fas fa-bookmark"></i></a>
                     </li>
                     {% if is_granted('ROLE_USER') %}
                     <li class="col-xs-4 align-center nodec">
-                        <a href="{{ path('logout') }}"><i class="fas fa-sign-out-alt"></i></a>
+                        <a href=""><i class="fas fa-sign-out-alt"></i></a>
                     </li>
                     {% else %}
                     <li class="col-xs-4 align-center nodec">
-                        <a href="{{ path('login') }}"><i class="fas fa-sign-in-alt"></i></a>
+                        <a href="/login"><i class="fas fa-sign-in-alt"></i></a>
                     </li>
                     {% endif %}
                 </ul>
@@ -88,7 +89,6 @@
     {% block javascripts %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="{{ asset('js/bookmark.js') }}"></script>
 {% endblock %}
 
 </body>

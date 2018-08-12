@@ -1,3 +1,7 @@
-p6_user_homepage:
-    path:     /
-    defaults: { _controller: p6UserBundle:Default:index }
+#p6CoreBundle:
+#    path:     /
+#    defaults: { _controller: p6CoreBundle:Default:index }
+
+index:
+    path:    /
+    defaults: { _controller: p6CoreBundle:Index:index }
