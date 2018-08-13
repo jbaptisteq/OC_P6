@@ -18,7 +18,7 @@
         </div>
         <div class="form-input">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        <p><a href="">Forgot Password ?</a></p><br />
+        <p><a href="{{ path('forget') }}">Forgot Password ?</a></p><br />
         </div>
         <input type="submit" class="btn-custom" value="Login" />
         {% if error %}

@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class SecurityController extends Controller
 {
     /**
@@ -24,5 +25,13 @@ class SecurityController extends Controller
             'last_username' => $authenticationUtils->getLastUsername(),
             'error'         => $authenticationUtils->getLastAuthenticationError(),
         ));
+    }
+
+    /**
+     * @Route("/forgot_password", name="forget")
+     */
+    public function forgetAction()
+    {   
+        return $this->render('p6UserBundle:Security:forget.html.twig');
     }
 }
