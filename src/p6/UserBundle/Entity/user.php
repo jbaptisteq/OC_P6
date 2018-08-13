@@ -43,11 +43,7 @@ class user implements UserInterface, \Serializable
     */
     private $email;
 
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(max=4096)
-     */
-    private $plainPassword;
+
 
 
     /**
@@ -132,16 +128,6 @@ class user implements UserInterface, \Serializable
     public function getEmail()
     {
         return $this->email;
-    }
-
-    public function getPlainPassword()
-    {
-        return $this->plainPassword;
-    }
-
-    public function setPlainPassword($password)
-    {
-        $this->plainPassword = $password;
     }
 
 

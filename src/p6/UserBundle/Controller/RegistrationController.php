@@ -26,8 +26,11 @@ class RegistrationController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
+            // 3b) Set default avatar
+            $id_avatar = "1";
+            $user->setId_avatar($id_avatar);
 
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
