@@ -64,12 +64,12 @@ doctrine:
 swiftmailer:
     transport:        "smtp"
     host:             "smtp.gmail.com"
-    username:         "samuelcrux30@gmail.com"
-    password:         "*********"
+    username:         "********"
+    password:         "*******"
     auth_mode:        login
     port:             587
     encryption:       tls
-    delivery_address: "jb.queralt@gmail.com"
+    delivery_address: "********"
     spool: { type: memory }
     stream_options:
       ssl:
