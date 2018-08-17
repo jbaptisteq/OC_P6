@@ -18,7 +18,7 @@ class IndexController extends Controller
     {
         $repository = $this->getDoctrine()
             ->getManager()
-            ->getRepository('p6CoreBundle:trick')
+            ->getRepository('p6CoreBundle:Trick')
         ;
 
         $tricklist = $repository->findall();

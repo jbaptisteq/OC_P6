@@ -4,9 +4,9 @@ namespace p6\CoreBundle\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use p6\CoreBundle\Entity\trick;
+use p6\CoreBundle\Entity\Trick;
 
-class Loadtrick extends Fixture
+class LoadTrick extends Fixture
 {
     public function load(ObjectManager $manager)
     {
@@ -23,7 +23,7 @@ class Loadtrick extends Fixture
         );
 
         foreach ($list as $line) {
-            $trick = new trick();
+            $trick = new Trick();
             $trick->setName($line['name']);
             $trick->setDescription($line['description']);
             $trick->setCategory($line['category_id']);

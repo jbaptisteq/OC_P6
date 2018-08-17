@@ -5,12 +5,12 @@ namespace p6\UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * comment
+ * Comment
  *
  * @ORM\Table(name="comment")
  * @ORM\Entity(repositoryClass="p6\UserBundle\Repository\commentRepository")
  */
-class comment
+class Comment
 {
     /**
      * @var int

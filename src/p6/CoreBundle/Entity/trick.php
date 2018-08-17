@@ -5,12 +5,12 @@ namespace p6\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* trick
+* Trick
 *
 * @ORM\Table(name="trick")
-* @ORM\Entity(repositoryClass="p6\CoreBundle\Repository\trickRepository")
+* @ORM\Entity(repositoryClass="p6\CoreBundle\Repository\TrickRepository")
 */
-class trick
+class Trick
 {
     /**
     * @var int
@@ -36,7 +36,7 @@ class trick
     private $description;
 
     /**
-    * @ORM\ManyToOne(targetEntity="p6\CoreBundle\Entity\category")
+    * @ORM\ManyToOne(targetEntity="p6\CoreBundle\Entity\Category")
     * @ORM\JoinColumn(nullable=false)
     */
     private $category;

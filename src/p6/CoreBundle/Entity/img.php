@@ -5,12 +5,12 @@ namespace p6\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * img
+ * Img
  *
  * @ORM\Table(name="img")
- * @ORM\Entity(repositoryClass="p6\CoreBundle\Repository\imgRepository")
+ * @ORM\Entity(repositoryClass="p6\CoreBundle\Repository\ImgRepository")
  */
-class img
+class Img
 {
     /**
      * @var int

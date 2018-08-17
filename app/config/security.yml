@@ -3,7 +3,7 @@
 security:
 
     encoders:
-        p6\UserBundle\Entity\user:
+        p6\UserBundle\Entity\User:
             algorithm: bcrypt
 
 
@@ -20,7 +20,7 @@ security:
         #                roles: 'ROLE_ADMIN'
         main:
             entity:
-               class:    p6\UserBundle\Entity\user
+               class:    p6\UserBundle\Entity\User
                property: username
 
 
