@@ -1,0 +1,26 @@
+{% extends "p6CoreBundle::layout.html.twig" %}
+{% block title %}SnowTricks - Reset Password{% endblock %}
+
+{% block body %}
+
+
+
+<div class="loginForm">
+    <h1>Reset Password</h1>
+    <form action="" method="post" class="FormDesktop">
+        <div class="form-input">
+            <label for="username merribold">email</label><br />
+            <input type="email" id="email" name="_email" value="" />
+        </div>
+        <div class="form-input">
+            <label for="password merribold">Password</label><br />
+            <input type="password" id="password" name="_password" /><br />
+        </div>
+        <br />
+        <div>
+            <input type="submit" class="btn-custom" value="Reset" />
+        </div>
+    </form>
+</div>
+
+{% endblock %}
