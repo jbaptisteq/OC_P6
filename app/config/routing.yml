@@ -24,3 +24,11 @@ logout:
 forget:
     path: /forgot_password
     defaults: { _controller: p6UserBundle:Security:forget }
+
+reset:
+    path: /reset_password
+    defaults: { _controller: p6UserBundle:Security:reset }
+
+register_validation:
+    path: /validate/token={token}
+    defaults: { _controller: p6UserBundle:Registration:validate }

@@ -8,14 +8,27 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
-* user
+* Step 1: Lors de la validation du formulaire register :
+*     -> Je créé un Token Unique et je met user->token = token créé
+*     -> Je met mon user->validated = 0
+*     -> J'enregistre mon nouvel user en bdd
+*     -> J'envoie un mail à l'user->email avec un lien du type : mon-site.com/confirm-registration?token=$user->token
+* Step 2: Mon user clique sur le lien dans le mail
+*     -> Mon controller récupère le user en bdd associé au $request->get('token')
+*     -> Si un user est bien récupéré $user->validated = 1
+*     -> J'affiche un message à l'utilisateur ou je le redirige au login (voire wireframes)
+*/
+
+
+/**
+* User
 *
 * @ORM\Table(name="user")
-* @ORM\Entity(repositoryClass="p6\UserBundle\Repository\userRepository")
+* @ORM\Entity(repositoryClass="p6\UserBundle\Repository\UserRepository")
 * @UniqueEntity(fields="email", message="Cet email est déjà utilisé.")
 * @UniqueEntity(fields="username", message="Nom d'utilisateur est déjà utilisé.")
 */
-class user implements UserInterface, \Serializable
+class User implements UserInterface, \Serializable
 {
     /**
     * @var int
@@ -43,8 +56,19 @@ class user implements UserInterface, \Serializable
     */
     private $email;
 
+    /**
+    * @var string
+    *
+    * @ORM\Column(name="token", type="string", length=255)
+    */
+    private $token;
 
-
+    /**
+    * @var string
+    *
+    * @ORM\Column(name="validated", type="boolean")
+    */
+    private $validated;
 
     /**
     * @var string
@@ -162,7 +186,7 @@ class user implements UserInterface, \Serializable
     */
     public function setId_avatar($id_avatar)
     {
-        $this->id_avatar = $id_avatar;
+        $this->idAvatar = $id_avatar;
     }
 
     /**
@@ -183,6 +207,38 @@ class user implements UserInterface, \Serializable
     {
         return $this->roles;
     }
+
+    public function setToken($token)
+    {
+        $this->token = $token;
+    }
+
+    /**
+    * Get token.
+    *
+    * @return string
+    */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    public function setValidated($validated)
+    {
+        $this->validated = $validated;
+    }
+
+    /**
+    * Get validated.
+    *
+    * @return string
+    */
+    public function getValidated()
+    {
+        return $this->validated;
+    }
+
+
 
     /**
     * Get salt.

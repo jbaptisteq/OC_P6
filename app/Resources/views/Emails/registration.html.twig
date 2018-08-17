@@ -1,0 +1,9 @@
+{# app/Resources/views/Emails/registration.html.twig #}
+<h3>Bienvenue sur SnowTricks!</h3>
+
+Bonjour {{ name }}! Votre compte est en attente de validation.
+
+{# example, assuming you have a route named "login" #}
+Pour confirmer votre inscription, cliquez sur : <a href="{{ url('register_validation', {'token': token }) }}">Validation</a>.
+<br />
+Merci!

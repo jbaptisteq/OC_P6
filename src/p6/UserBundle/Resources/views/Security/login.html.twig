@@ -5,15 +5,15 @@
 
 
 
-<div class="loginForm">
+<div class="loginForm merribold">
     <h1>Login</h1>
     <form action="{{ path('login_check') }}" method="post" class="FormDesktop">
-        <div class="form-input">
-            <label for="username merribold">Username</label><br />
+                <div class="form-input">
+            <label for="username">Username</label><br />
             <input type="text" id="username" name="_username" value="{{ last_username }}" />
         </div>
         <div class="form-input">
-            <label for="password merribold">Password</label><br />
+            <label for="password">Password</label><br />
             <input type="password" id="password" name="_password" /><br />
         </div>
         <div class="form-input">
@@ -21,6 +21,11 @@
         <p><a href="{{ path('forget') }}">Forgot Password ?</a></p><br />
         </div>
         <input type="submit" class="btn-custom" value="Login" />
+        {% for message in app.flashes('accountValidated') %}
+            <div class="flash-notice alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
         {% if error %}
         <div class="alert alert-danger">{{ error.message | replace({"Bad credentials." : "Invalid username or password."}) }}</div>
         {% endif %}
