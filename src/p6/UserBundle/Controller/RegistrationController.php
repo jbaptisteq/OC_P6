@@ -63,10 +63,6 @@ class RegistrationController extends Controller
             $entityManager->persist($user);
             $entityManager->flush();
 
-                // or, you can also fetch the mailer service this way
-                // $this->get('mailer')->send($message);
-
-
             return $this->redirectToRoute('homepage');
             }
 
