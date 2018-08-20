@@ -178,13 +178,13 @@ class User implements AdvancedUserInterface, \Serializable
   /**
   * Set id_avatar.
   *
-  * @param int $id_avatar
+  * @param int $idAvatar
   *
   *
   */
-  public function setId_avatar($id_avatar)
+  public function setIdAvatar($idAvatar)
   {
-    $this->idAvatar = $id_avatar;
+    $this->idAvatar = $idAvatar;
   }
 
   /**
@@ -192,9 +192,9 @@ class User implements AdvancedUserInterface, \Serializable
   *
   * @return int
   */
-  public function getId_avatar()
+  public function getIdAvatar()
   {
-    return $this->id_avatar;
+    return $this->idAvatar;
   }
 
 
