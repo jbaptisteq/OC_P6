@@ -27,7 +27,7 @@
             </div>
         {% endfor %}
         {% if error %}
-        <div class="alert alert-danger">{{ error.message | replace({"Bad credentials." : "Invalid username or password."}) }}</div>
+        <div class="alert alert-danger">{{ error.message | replace({"Bad credentials." : "Username ou Password non valide"}) | replace({"User account is disabled." : "Compte non activé"})  }}</div>
         {% endif %}
     </form>
 </div>

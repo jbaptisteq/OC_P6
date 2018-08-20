@@ -37,8 +37,8 @@ class RegistrationController extends Controller
             $token = md5(random_bytes(10));
             $user->setToken($token);
             //3d) set validated = 0
-            $validated = 0;
-            $user->setValidated($validated);
+            $isActive = 0;
+            $user->setIsActive($isActive);
 
             //4) switmailer
 
@@ -90,7 +90,7 @@ class RegistrationController extends Controller
             } else {
                 $entityManager = $this->getDoctrine()->getManager();
                 $user = $entityManager->getRepository(User::class)->findOneBy(['token' => $token]);
-                $user->setValidated('1');
+                $user->setIsActive('1');
                 $user->setToken('');
                 $entityManager->flush();
 
