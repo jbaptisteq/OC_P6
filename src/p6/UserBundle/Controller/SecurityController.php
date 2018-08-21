@@ -78,42 +78,28 @@ class SecurityController extends Controller
         $posts = $request->request->all();
         $emailCheck = $request->request->get('emailCheck');
         $newPassword = $request->request->get('newPassword');
-
         $repository = $this->getDoctrine()->getRepository(User::class);
         $tokendb = $repository->findOneBy(['token' => $token]);
 
-        if (!$tokendb) {
-          $this->addFlash(
-            'danger',
-            'Token utilisé non valide'
-          );
+        if (!$tokendb) { $this->addFlash('danger', 'Token utilisé non valide');
           return $this->redirectToRoute('login');
         } else {
           $repository = $this->getDoctrine()->getRepository(User::class);
           $emaildb = $repository->findOneBy(['email' => $emailCheck]);
 
           if (!$emaildb){
-            $this->addFlash(
-              'danger',
-              'Email utilisé non valide'
-            );
+            $this->addFlash('danger', 'Email utilisé non valide');
 
             return $this->redirectToRoute('login');
           } else {
-
             $entityManager = $this->getDoctrine()->getManager();
             $user = $entityManager->getRepository(User::class)->FindOneBy(['token' => $token]);
-
             $password = $passwordEncoder->encodePassword($user, $newPassword);
             $user->setPassword($password);
             $user->setToken('');
-
             $entityManager->flush();
 
-            $this->addFlash(
-              'success',
-              'Mot de passe changé'
-            );
+            $this->addFlash('success', 'Mot de passe changé');
 
             return $this->redirectToRoute('login');
           }
