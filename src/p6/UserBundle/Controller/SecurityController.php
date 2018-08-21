@@ -35,76 +35,60 @@ class SecurityController extends Controller
   */
   public function forgetAction(Request $request, \Swift_Mailer $mailer)
   {
-    if($request->isMethod('post')){
-      $posts = $request->request->all();
-      $username = $request->request->get('username');
-
+    if ($request->isMethod('post')) {
       $entityManager = $this->getDoctrine()->getManager();
-      $user = $entityManager->getRepository(User::class)->FindOneBy(['username' => $username]);
-
-      $token = md5(random_bytes(10));
-      $user->setToken($token);
+      $user = $entityManager->getRepository(User::class)->FindOneBy(['username' => $request->request->get('username')]);
+      $user->setToken(md5(random_bytes(10)));
 
       $message = \Swift_Message::newInstance()
-      ->setSubject('SnowTricks Changement de mot de passe')
-      ->setFrom('noreply@snowtricks.com')
-      ->setTo('jb.queralt@gmail.com')
-      ->setBody(
-        $this->renderView('Emails/recup.html.twig', array('name' => $user->getUsername(), 'token' => $user->getToken())), 'text/html');
+        ->setSubject('SnowTricks Changement de mot de passe')
+        ->setFrom('noreply@snowtricks.com')
+        ->setTo('jb.queralt@gmail.com')
+        ->setBody($this->renderView('Emails/recup.html.twig', array('name' => $user->getUsername(), 'token' => $user->getToken())), 'text/html');
+      $this->get('mailer')->send($message);
+      $this->addFlash('sendReset', 'Email de reset envoyé');
+      $entityManager->persist($user);
+      $entityManager->flush();
 
-        $this->get('mailer')->send($message);
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($user);
-        $entityManager->flush();
-
-        $this->addFlash(
-          'sendReset',
-          'Email de reset envoyé'
-        );
-
-        return $this->RedirectToRoute('forget');
-
-      }
-      return $this->render('p6UserBundle:Security:forget.html.twig');
+      return $this->RedirectToRoute('forget');
     }
+
+    return $this->render('p6UserBundle:Security:forget.html.twig');
+  }
 
     /**
     * @Route("/reset_password/token={token}", name="reset")
     */
     public function resetAction(Request $request, UserPasswordEncoderInterface $passwordEncoder, $token)
     {
-      if($request->isMethod('post')){
-        $posts = $request->request->all();
-        $emailCheck = $request->request->get('emailCheck');
-        $newPassword = $request->request->get('newPassword');
+      if ($request->isMethod('post')) {
         $repository = $this->getDoctrine()->getRepository(User::class);
-        $tokendb = $repository->findOneBy(['token' => $token]);
 
-        if (!$tokendb) { $this->addFlash('danger', 'Token utilisé non valide');
+        if (!$repository->findOneBy(['token' => $token])) {
+          $this->addFlash('danger', 'Token utilisé non valide');
+
+          return $this->redirectToRoute('login');
+        } else if (!$repository->findOneBy(['email' => $request->request->get('emailCheck')])) {
+          $this->addFlash('danger', 'Email utilisé non valide');
+
+          return $this->redirectToRoute('login');
+      } else if (empty($request->request->get('newPassword'))) {
+          $this->addFlash('danger', 'Veuillez saisir un mot de passe');
+
           return $this->redirectToRoute('login');
         } else {
-          $repository = $this->getDoctrine()->getRepository(User::class);
-          $emaildb = $repository->findOneBy(['email' => $emailCheck]);
+          $entityManager = $this->getDoctrine()->getManager();
+          $user = $entityManager->getRepository(User::class)->FindOneBy(['token' => $token]);
+          $password = $passwordEncoder->encodePassword($user, $request->request->get('newPassword'));
+          $user->setPassword($password);
+          $user->setToken('');
+          $entityManager->flush();
+          $this->addFlash('success', 'Mot de passe changé');
 
-          if (!$emaildb){
-            $this->addFlash('danger', 'Email utilisé non valide');
-
-            return $this->redirectToRoute('login');
-          } else {
-            $entityManager = $this->getDoctrine()->getManager();
-            $user = $entityManager->getRepository(User::class)->FindOneBy(['token' => $token]);
-            $password = $passwordEncoder->encodePassword($user, $newPassword);
-            $user->setPassword($password);
-            $user->setToken('');
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Mot de passe changé');
-
-            return $this->redirectToRoute('login');
-          }
+          return $this->redirectToRoute('login');
         }
       }
+
       return $this->render('p6UserBundle:Security:reset.html.twig');
     }
   }

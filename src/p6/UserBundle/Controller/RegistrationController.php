@@ -82,10 +82,8 @@ class RegistrationController extends Controller
             $tokendb = $repository->findOneBy(['token' => $token]);
 
             if (!$tokendb) {
-                $this->addFlash(
-                    'danger',
-                    'Token utilisé non valide'
-                );
+                $this->addFlash('danger', 'Token utilisé non valide');
+
                 return $this->redirectToRoute('register');
             } else {
                 $entityManager = $this->getDoctrine()->getManager();
@@ -94,11 +92,8 @@ class RegistrationController extends Controller
                 $user->setToken('');
                 $entityManager->flush();
 
-
-                $this->addFlash(
-                    'success',
-                    'Votre compte est activé'
-                );
+                $this->addFlash('success', 'Votre compte est activé');
+                
                 return $this->redirectToRoute('login');
             }
         }

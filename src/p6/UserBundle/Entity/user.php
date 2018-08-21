@@ -248,8 +248,6 @@ class User implements AdvancedUserInterface, \Serializable
   */
   public function getSalt()
   {
-    // The bcrypt and argon2i algorithms don't require a separate salt.
-    // You *may* need a real salt if you choose a different encoder.
     return null;
   }
 
