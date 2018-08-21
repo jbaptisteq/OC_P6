@@ -31,8 +31,8 @@ class RegistrationController extends Controller
             $password = $passwordEncoder->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
             // 3b) Set default avatar
-            $id_avatar = 1;
-            $user->setId_avatar($id_avatar);
+            $idAvatar = 1;
+            $user->setIdAvatar($idAvatar);
             //3c) create token
             $token = md5(random_bytes(10));
             $user->setToken($token);
@@ -83,7 +83,7 @@ class RegistrationController extends Controller
 
             if (!$tokendb) {
                 $this->addFlash(
-                    'alerteToken',
+                    'danger',
                     'Token utilisé non valide'
                 );
                 return $this->redirectToRoute('register');
@@ -96,7 +96,7 @@ class RegistrationController extends Controller
 
 
                 $this->addFlash(
-                    'accountValidated',
+                    'success',
                     'Votre compte est activé'
                 );
                 return $this->redirectToRoute('login');

@@ -21,8 +21,13 @@
         <p><a href="{{ path('forget') }}">Forgot Password ?</a></p><br />
         </div>
         <input type="submit" class="btn-custom" value="Login" />
-        {% for message in app.flashes('accountValidated') %}
+        {% for message in app.flashes('success') %}
             <div class="flash-notice alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('danger') %}
+            <div class="flash-notice alert alert-danger">
                 {{ message }}
             </div>
         {% endfor %}
