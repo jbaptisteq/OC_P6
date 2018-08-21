@@ -8,19 +8,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
-* Step 1: Lors de la validation du formulaire register :
-*     -> Je créé un Token Unique et je met user->token = token créé
-*     -> Je met mon user->validated = 0
-*     -> J'enregistre mon nouvel user en bdd
-*     -> J'envoie un mail à l'user->email avec un lien du type : mon-site.com/confirm-registration?token=$user->token
-* Step 2: Mon user clique sur le lien dans le mail
-*     -> Mon controller récupère le user en bdd associé au $request->get('token')
-*     -> Si un user est bien récupéré $user->validated = 1
-*     -> J'affiche un message à l'utilisateur ou je le redirige au login (voire wireframes)
-*/
-
-
-/**
 * User
 *
 * @ORM\Table(name="user")
@@ -180,7 +167,6 @@ class User implements AdvancedUserInterface, \Serializable
   *
   * @param int $idAvatar
   *
-  *
   */
   public function setIdAvatar($idAvatar)
   {
@@ -206,6 +192,12 @@ class User implements AdvancedUserInterface, \Serializable
     return $this->roles;
   }
 
+  /**
+  * Set token.
+  *
+  * @param string $token
+  *
+  */
   public function setToken($token)
   {
     $this->token = $token;
@@ -221,6 +213,11 @@ class User implements AdvancedUserInterface, \Serializable
     return $this->token;
   }
 
+  /**
+  *
+  * Set isActive.
+  *
+  */
   public function setIsActive($isActive)
   {
     $this->isActive = $isActive;
@@ -236,6 +233,10 @@ class User implements AdvancedUserInterface, \Serializable
     return $this->isActive;
   }
 
+  /**
+  *
+  * @return boolean isActive
+  */
   public function isEnabled()
   {
     return $this->isActive;
@@ -251,7 +252,10 @@ class User implements AdvancedUserInterface, \Serializable
     return null;
   }
 
-
+  /**
+  * eraseCredentials
+  *
+  */
   public function eraseCredentials()
   {
   }
@@ -279,16 +283,25 @@ class User implements AdvancedUserInterface, \Serializable
       ) = unserialize($serialized, array('allowed_classes' => false));
     }
 
+    /**
+    * AdvanceUserInterface function
+    */
     public function isAccountNonExpired()
     {
       return true;
     }
 
+    /**
+    * AdvanceUserInterface function
+    */
     public function isAccountNonLocked()
     {
       return true;
     }
 
+    /**
+    * AdvanceUserInterface function
+    */
     public function isCredentialsNonExpired()
     {
       return true;
