@@ -62,6 +62,18 @@ input[type=text], input[type=password], input[type=email] {
     margin-left: 50%;
     transform: translateX(-50%);
 }
+.FormDescription{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 150px;
+}
 
 .btn-custom{
     color: black;
@@ -149,10 +161,6 @@ input[type=text], input[type=password], input[type=email] {
         position : relative;
     }
 
-    .headerNoBg{
-
-    }
-
     .snowname{
         font-weight: 600;
         font-size: 4em;
@@ -180,6 +188,7 @@ input[type=text], input[type=password], input[type=email] {
         background-color: white;
         opacity: 0.7;
         margin-top: 10%;
+        color: #130E0A;
     }
 
     .form-input{
@@ -288,6 +297,7 @@ input[type=text], input[type=password], input[type=email] {
         background-color: white;
         opacity: 0.7;
         margin-top: 10%;
+        color: #130E0A;
     }
 
     .trickblock{
@@ -305,6 +315,7 @@ input[type=text], input[type=password], input[type=email] {
         width: 285px;
         height: 200px;
     }
+
     .minitest{
         min-height: 178px;
         border-radius: 4px;

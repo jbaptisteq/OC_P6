@@ -1,0 +1,127 @@
+
+.sectionTrick{
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 15px;
+}
+
+.boxTrick{
+  position: relative;
+  display: inline-block;
+}
+
+.imgTrick{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  padding: auto;
+}
+
+.frameTrick{
+  font-size: 70px;
+  position: absolute;
+  height: 10%;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.frameTrickEdit{
+  font-size: 25px;
+  position: absolute;
+  height: 10%;
+  text-align: top;
+  width: 20%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin-left: 80%;
+  margin-top: 2%;
+}
+
+.nameTrick{
+  margin-top: auto;
+}
+
+.trickTitle{
+  color: white;
+  text-shadow: 3px 3px 6px black, 0 0 25px blue, 0 0 10px darkblue;
+  text-align: center;
+}
+
+embed, iframe, object{
+  max-width: 100%;
+  max-height: 80%;
+  position: top center;
+}
+
+.mediaFrame{
+  background-color: white;
+  width: 285px;
+  height: 200px;
+  text-align: right;
+}
+
+.mediaFrame>img{
+  max-width: 255px;
+  max-height: 160px;
+  position: top center;
+}
+
+.decal{
+  margin-top: 5px;
+}
+
+.frameLeft{
+  border-top: solid black 2px;
+  border-left: solid black 2px;
+  border-bottom:solid black 2px;
+}
+
+.frameRight{
+  border-top: solid black 2px;
+  border-right: solid black 2px;
+  border-bottom:solid black 2px;
+}
+
+.trickContent{
+  margin-top: 20px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 668px){
+  .boutonMedia{
+    display: none;
+  }
+}
+/* Style for smartphone */
+
+@media only screen and (max-width: 668px)
+{
+  .mediaFrame{
+    margin: 15px 2px 2px 15px;
+    width: 285px;
+    height: 200px;
+  }
+
+  .trickContent{
+    margin: 15px 2px 20px 15px;
+  }
+
+  .mediaTrickHide{
+    display: none;
+  }
+
+  .boutonMedia{
+    text-align: center;
+  }
+
+}
