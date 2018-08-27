@@ -5,12 +5,12 @@ namespace p6\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Vid
+ * Video
  *
- * @ORM\Table(name="vid")
- * @ORM\Entity(repositoryClass="p6\CoreBundle\Repository\VidRepository")
+ * @ORM\Table(name="video")
+ * @ORM\Entity(repositoryClass="p6\CoreBundle\Repository\VideoRepository")
  */
-class Vid
+class Video
 {
     /**
      * @var int
@@ -44,7 +44,7 @@ class Vid
      *
      * @param string $link
      *
-     * @return vid
+     * @return video
      */
     public function setLink($link)
     {

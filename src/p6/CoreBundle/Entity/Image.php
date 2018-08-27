@@ -5,12 +5,12 @@ namespace p6\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Img
+ * Image
  *
- * @ORM\Table(name="img")
- * @ORM\Entity(repositoryClass="p6\CoreBundle\Repository\ImgRepository")
+ * @ORM\Table(name="image")
+ * @ORM\Entity(repositoryClass="p6\CoreBundle\Repository\ImageRepository")
  */
-class Img
+class Image
 {
     /**
      * @var int
@@ -44,7 +44,7 @@ class Img
      *
      * @param string $url
      *
-     * @return img
+     * @return image
      */
     public function setUrl($url)
     {
