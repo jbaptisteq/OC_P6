@@ -1,0 +1,78 @@
+{# src/p6/CoreBundle/Resources/views/Advert/trick.html.twig #}
+{% extends "p6CoreBundle::layout.html.twig" %}
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block body %}
+
+<section class="sectionTrick">
+  <div class="boxTrick">
+    {% if not trick.images.empty %}
+    {% for image in trick.images | slice(0,1) %}
+    <img class="imgTrick" src="{{ asset(''|default('images/upload/'~image.url))}}" alt="{{trick.name}}"/>
+    {% endfor %}
+    {% else %}
+    <img class="imgTrick" src="{{ asset('images/upload/default.jpg')}}" alt="{{trick.name}}"/>
+    {% endif %}
+    <div class="frameTrick trickTitle indie">
+      <p class="nameTrick">{{ trick.name }}</p>
+    </div>
+    {% if is_granted('ROLE_USER') %}
+    <div class="row frameTrickEdit">
+      <div class=" col-xs-2 col-xs-offset-7 frameLeft mediaFrameBottom"><i class="fas fa-pen blue"></i></div>
+      <div class="col-xs-2 frameRight mediaFrameBottom"><i class="far fa-trash-alt red"></i></div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="container boutonMedia">
+  <button class="buttonTrick btn-custom">Afficher / Cacher les médias</button>
+</section>
+
+<section id="mediaTrickHide" class="mediaTrickHide">
+  <div class="container">
+    <div class="row">
+      {% if not trick.images.empty %}
+      {% for image in trick.images %}
+      <div class="mediaFrame col-sm-2 merribold">
+        <img src="{{ asset('images/upload/'~image.url)}}" alt="{{trick.name}}"/>
+        {% if is_granted('ROLE_USER') %}
+        <div class="row decal">
+          <div class=" col-xs-2 col-xs-offset-7 frameLeft mediaFrameBottom"><i class="fas fa-pen blue"></i></div>
+          <div class="col-xs-2 frameRight mediaFrameBottom"><i class="far fa-trash-alt red"></i></div>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+      {% endif %}
+
+      {% if not trick.videos.empty %}
+      {% for video in trick.videos %}
+      <div class="mediaFrame col-sm-2 merribold">
+        {{ video.link | raw }}
+        {% if is_granted('ROLE_USER') %}
+        <div class="row">
+          <div class=" col-xs-2 col-xs-offset-7 frameLeft mediaFrameBottom"><i class="fas fa-pen blue"></i></div>
+          <div class="col-xs-2 frameRight mediaFrameBottom"><i class="far fa-trash-alt red"></i></div>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="row">
+    <p class="trickContent merribold">{{ trick.description }}</p>
+  </div>
+  <div class="row">
+    <p class="col-sm-2 merribold">Catégorie : {{ trick.category.name }}</p>
+    <p class="col-sm-2 merribold">Ajouté le : {{ trick.creaDate | date('d/m/Y') }}</p>
+      {% if trick.editDate is not null %}
+    <p class="col-sm-2 merribold">Edité le : {{ trick.editDate | date('d/m/Y') }}</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -32,3 +32,11 @@ forget:
 reset:
     path: /reset_password/token={token}
     defaults: { _controller: p6UserBundle:Security:reset }
+
+trick:
+  path: /trick/detail/{id}
+  defaults: { _controller: p6CoreBundle:Index:view }
+
+newTrick:
+  path: /newTrick
+  defaults : { _controller:p6CoreBundle:Trick:add}

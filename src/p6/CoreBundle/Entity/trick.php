@@ -3,6 +3,8 @@
 namespace p6\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
 * Trick
@@ -12,101 +14,226 @@ use Doctrine\ORM\Mapping as ORM;
 */
 class Trick
 {
-    /**
-    * @var int
-    *
-    * @ORM\Column(name="id", type="integer")
-    * @ORM\Id
-    * @ORM\GeneratedValue(strategy="AUTO")
-    */
-    private $id;
+  /**
+  * @var int
+  *
+  * @ORM\Column(name="id", type="integer")
+  * @ORM\Id
+  * @ORM\GeneratedValue(strategy="AUTO")
+  */
+  private $id;
 
-    /**
-    * @var string
-    *
-    * @ORM\Column(name="name", type="string", length=255, unique=true)
-    */
-    private $name;
+  /**
+  * @var string
+  *
+  * @ORM\Column(name="name", type="string", length=255, unique=true)
+  */
+  private $name;
 
-    /**
-    * @var string
-    *
-    * @ORM\Column(name="description", type="text")
-    */
-    private $description;
+  /**
+  * @var string
+  *
+  * @ORM\Column(name="description", type="text")
+  */
+  private $description;
 
-    /**
-    * @ORM\ManyToOne(targetEntity="p6\CoreBundle\Entity\Category")
-    * @ORM\JoinColumn(nullable=false)
-    */
-    private $category;
+  /**
+  * @var \DateTime
+  *
+  * @ORM\Column(name="creaDate", type="datetime", nullable=true)
+  *
+  */
+  private $creaDate;
 
-    /**
-    * Get id.
-    *
-    * @return int
-    */
-    public function getId()
-    {
-        return $this->id;
-    }
+  /**
+  * @var \DateTime
+  *
+  * @ORM\Column(name="editDate", type="datetime", nullable=true)
+  *
+  */
+  private $editDate;
 
-    /**
-    * Set name.
-    *
-    * @param string $name
-    *
-    * @return trick
-    */
-    public function setName($name)
-    {
-        $this->name = $name;
+  /**
+  * @ORM\ManyToOne(targetEntity="p6\CoreBundle\Entity\Category")
+  * @ORM\JoinColumn(nullable=false)
+  */
+  private $category;
 
-        return $this;
-    }
+  /**
+  * @ORM\ManyToMany(targetEntity="p6\CoreBundle\Entity\Image", cascade={"persist"})
+  */
+  private $images;
 
-    /**
-    * Get name.
-    *
-    * @return string
-    */
-    public function getName()
-    {
-        return $this->name;
-    }
+  /**
+  * @ORM\ManyToMany(targetEntity="p6\CoreBundle\Entity\Video", cascade={"persist"})
+  */
+  private $videos;
 
-    /**
-    * Set description.
-    *
-    * @param string $description
-    *
-    * @return trick
-    */
-    public function setDescription($description)
-    {
-        $this->description = $description;
+  public function __construct()
+  {
+    $this->date = new \Datetime();
+    $this->images = new ArrayCollection();
+    $this->videos = new ArrayCollection();
+  }
 
-        return $this;
-    }
+  public function addImage(image $image)
+  {
+    $this->images[] = $image;
+  }
 
-    /**
-    * Get description.
-    *
-    * @return string
-    */
-    public function getDescription()
-    {
-        return $this->description;
-    }
+  public function removeImagz(image $image)
+  {
+    $this->images->removeElement($image);
+  }
 
-    public function setCategory(category $category = null)
-    {
-        $this->category = $category;
-    }
+  public function getImages()
+  {
+    return $this->images;
+  }
 
-    public function getCategory()
-    {
-        return $this->category;
-    }
+  public function addVideo(video $video)
+  {
+    $this->videos[] = $video;
+  }
+
+  public function removeVideo(video $video)
+  {
+    $this->videos->removeElement($video);
+  }
+
+  public function getVideos()
+  {
+    return $this->videos;
+  }
+
+  /**
+  * Get id.
+  *
+  * @return int
+  */
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  /**
+  * Set name.
+  *
+  * @param string $name
+  *
+  * @return trick
+  */
+  public function setName($name)
+  {
+    $this->name = $name;
+
+    return $this;
+  }
+
+  /**
+  * Get name.
+  *
+  * @return string
+  */
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  /**
+  * Set description.
+  *
+  * @param string $description
+  *
+  * @return trick
+  */
+  public function setDescription($description)
+  {
+    $this->description = $description;
+
+    return $this;
+  }
+
+  /**
+  * Get description.
+  *
+  * @return string
+  */
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  /**
+  * Set creaDate.
+  *
+  * @param \DateTime $creaDate
+  *
+  * @return trick
+  */
+  public function setCreaDate($creadate)
+  {
+    $this->creaDate = $creadate;
+
+    return $this;
+  }
+
+  /**
+  * Get creaDate.
+  *
+  * @return \DateTime
+  */
+  public function getCreaDate()
+  {
+    return $this->creaDate;
+  }
+
+  /**
+  * Set editDate.
+  *
+  * @param \DateTime $editDate
+  *
+  * @return trick
+  */
+  public function setEditDate($editdate)
+  {
+    $this->editDate = $editdate;
+
+    return $this;
+  }
+
+  /**
+  * Get editDate.
+  *
+  * @return \DateTime
+  */
+  public function getEditDate()
+  {
+    return $this->editDate;
+  }
+
+
+
+
+  /**
+  * Set category
+  *
+  * @param int
+  *
+  */
+  public function setCategory(category $category = null)
+  {
+    $this->category = $category;
+  }
+
+  /**
+  *  Get category
+  *
+  * @return int
+  */
+  public function getCategory()
+  {
+    return $this->category;
+  }
 
 }
