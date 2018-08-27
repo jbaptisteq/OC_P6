@@ -1,5 +1,5 @@
 <?php
-// src/AppBundle/Controller/RegistrationController.php
+// p6/UserBundle/Controller/RegistrationController.php
 namespace p6\UserBundle\Controller;
 
 use p6\UserBundle\Form\UserType;
@@ -93,7 +93,7 @@ class RegistrationController extends Controller
                 $entityManager->flush();
 
                 $this->addFlash('success', 'Votre compte est activé');
-                
+
                 return $this->redirectToRoute('login');
             }
         }
