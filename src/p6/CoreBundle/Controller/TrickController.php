@@ -250,7 +250,7 @@ class TrickController extends Controller
   */
   public function showMoreCommentAction($id)
   {
-    $_SESSION['nbcomments'] = $_SESSION['nbcomments'] + 5;
+    $_SESSION['nbcomments'] = $_SESSION['nbcomments'] + 10;
 
     return $this->redirectToRoute('trick', array('id' => $id));
   }
