@@ -8,3 +8,7 @@ services:
 
     p6\CoreBundle\DataFixtures\LoadCategory:
         tags: [doctrine.fixture.orm]
+
+    p6\CoreBundle\Controller\TrickController:
+        autowire : true
+        tags: [controller.service_arguments]
