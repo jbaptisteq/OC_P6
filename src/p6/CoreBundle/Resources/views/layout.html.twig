@@ -35,6 +35,9 @@
                         </li>
                         {% if is_granted('ROLE_USER') %}
                         <li class="page-scroll">
+                            <a href="{{ path('newTrick') }}">New Trick</a>
+                        </li>
+                        <li class="page-scroll">
                             <a href="{{ path('logout') }}">Logout</a>
                         </li>
                         {% else %}
@@ -51,7 +54,16 @@
         </nav>
     </section>
 
-
+    {% for message in app.flashes('success') %}
+    <div class="flash-notice alert alert-success">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% for message in app.flashes('danger') %}
+    <div class="flash-notice alert alert-danger">
+      {{ message }}
+    </div>
+    {% endfor %}
 
     {% block header %}
     {% endblock %}
@@ -59,6 +71,7 @@
     {% block body %}
     {% endblock %}
 
+<footer>
     <section class="footer">
         <div class="footer-bar container desktop">
             <p class="merribold copy normal">Copyright @2018</p>
@@ -85,6 +98,8 @@
             </div>
         </div>
     </section>
+</footer>
+</body>
 
     {% block javascripts %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -92,7 +107,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{{ asset('js/bookmark.js') }}"></script>
     <script src="{{ asset('js/mediaMobile.js')}}"></script>
+    <script src="{{ asset('js/editButtonVideo.js')}}"></script>
+    <script src="{{ asset('js/deleteButtonVideo.js')}}"></script>
+    <script src="{{ asset('js/editButtonImage.js')}}"></script>
+    <script src="{{ asset('js/deleteButtonImage.js')}}"></script>
     {% endblock %}
 
-</body>
+
 </html>
