@@ -4,13 +4,18 @@ namespace p6\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
 * Trick
 *
 * @ORM\Table(name="trick")
 * @ORM\Entity(repositoryClass="p6\CoreBundle\Repository\TrickRepository")
+* @ORM\Entity
+* @UniqueEntity(
+ *     fields={"name"},
+ *     message="Ce Trick existe déjà."
+ * )
 */
 class Trick
 {
@@ -20,6 +25,7 @@ class Trick
   * @ORM\Column(name="id", type="integer")
   * @ORM\Id
   * @ORM\GeneratedValue(strategy="AUTO")
+  *
   */
   private $id;
 
@@ -27,6 +33,7 @@ class Trick
   * @var string
   *
   * @ORM\Column(name="name", type="string", length=255, unique=true)
+  *
   */
   private $name;
 
@@ -54,6 +61,15 @@ class Trick
   private $editDate;
 
   /**
+  * @var int
+  *
+  * @ORM\Column(name="published", type="integer")
+  *
+  */
+  private $published;
+
+
+  /**
   * @ORM\ManyToOne(targetEntity="p6\CoreBundle\Entity\Category")
   * @ORM\JoinColumn(nullable=false)
   */
@@ -71,7 +87,7 @@ class Trick
 
   public function __construct()
   {
-    $this->date = new \Datetime();
+    $this->creaDate = new \Datetime();
     $this->images = new ArrayCollection();
     $this->videos = new ArrayCollection();
   }
@@ -81,7 +97,7 @@ class Trick
     $this->images[] = $image;
   }
 
-  public function removeImagz(image $image)
+  public function removeImage(image $image)
   {
     $this->images->removeElement($image);
   }
@@ -101,6 +117,9 @@ class Trick
     $this->videos->removeElement($video);
   }
 
+  /**
+   * @return ArrayCollection
+   */
   public function getVideos()
   {
     return $this->videos;
@@ -234,6 +253,27 @@ class Trick
   public function getCategory()
   {
     return $this->category;
+  }
+
+  /**
+  * Set published
+  *
+  * @param int
+  *
+  */
+  public function setPublished($published)
+  {
+    $this->published = $published;
+  }
+
+  /**
+  *  Get published
+  *
+  * @return int
+  */
+  public function getPublished()
+  {
+    return $this->published;
   }
 
 }
