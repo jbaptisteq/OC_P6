@@ -5,185 +5,157 @@ namespace p6\UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Comment
- *
- * @ORM\Table(name="comment")
- * @ORM\Entity(repositoryClass="p6\UserBundle\Repository\commentRepository")
- */
+* Comment
+*
+* @ORM\Table(name="comment")
+* @ORM\Entity(repositoryClass="p6\UserBundle\Repository\CommentRepository")
+*/
 class Comment
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+  /**
+  * @var int
+  *
+  * @ORM\Column(name="id", type="integer")
+  * @ORM\Id
+  * @ORM\GeneratedValue(strategy="AUTO")
+  */
+  private $id;
+
+  /**
+  * @var \DateTime
+  *
+  * @ORM\Column(name="datetime", type="datetime")
+  */
+  private $datetime;
+
+  /**
+  * @var string
+  *
+  * @ORM\Column(name="content", type="text")
+  */
+  private $content;
+
+  /**
+  * @ORM\ManyToOne(targetEntity="p6\CoreBundle\Entity\Trick")
+  * @ORM\JoinColumn(nullable=false)
+  */
+  private $trick;
+
+  public function __construct()
+  {
+    $this->date = new \Datetime();
+  }
+
+  /**
+     * @ORM\ManyToOne(targetEntity="p6\UserBundle\Entity\User", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $id;
+    private $user;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="datetime", type="datetime")
-     */
-    private $datetime;
+  /**
+  * Get id.
+  *
+  * @return int
+  */
+  public function getId()
+  {
+    return $this->id;
+  }
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="content", type="text")
-     */
-    private $content;
+  /**
+  * Set datetime.
+  *
+  * @param \DateTime $datetime
+  *
+  * @return comment
+  */
+  public function setDatetime($datetime)
+  {
+    $this->datetime = $datetime;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="user_id", type="integer")
-     */
-    private $userId;
+    return $this;
+  }
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="avatar_id", type="integer")
-     */
-    private $avatarId;
+  /**
+  * Get datetime.
+  *
+  * @return \DateTime
+  */
+  public function getDatetime()
+  {
+    return $this->datetime;
+  }
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="trick_id", type="integer")
-     */
-    private $trickId;
+  /**
+  * Set content.
+  *
+  * @param string $content
+  *
+  * @return comment
+  */
+  public function setContent($content)
+  {
+    $this->content = $content;
+
+    return $this;
+  }
+
+  /**
+  * Get content.
+  *
+  * @return string
+  */
+  public function getContent()
+  {
+    return $this->content;
+  }
+
+  /**
+  * Set userId.
+  *
+  * @param int $userId
+  *
+  * @return comment
+  */
+  public function setUser($user)
+  {
+    $this->user = $user;
+
+    return $this;
+  }
+
+  /**
+  * Get userId.
+  *
+  * @return int
+  */
+  public function getUser()
+  {
+    return $this->user;
+  }
 
 
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+  /**
+  * Set trickId.
+  *
+  * @param int $trick
+  *
+  * @return comment
+  */
+  public function setTrick($trick)
+  {
+    $this->trick = $trick;
 
-    /**
-     * Set datetime.
-     *
-     * @param \DateTime $datetime
-     *
-     * @return comment
-     */
-    public function setDatetime($datetime)
-    {
-        $this->datetime = $datetime;
+    return $this;
+  }
 
-        return $this;
-    }
-
-    /**
-     * Get datetime.
-     *
-     * @return \DateTime
-     */
-    public function getDatetime()
-    {
-        return $this->datetime;
-    }
-
-    /**
-     * Set content.
-     *
-     * @param string $content
-     *
-     * @return comment
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content.
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
-     * Set userId.
-     *
-     * @param int $userId
-     *
-     * @return comment
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId.
-     *
-     * @return int
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * Set avatarId.
-     *
-     * @param int $avatarId
-     *
-     * @return comment
-     */
-    public function setAvatarId($avatarId)
-    {
-        $this->avatarId = $avatarId;
-
-        return $this;
-    }
-
-    /**
-     * Get avatarId.
-     *
-     * @return int
-     */
-    public function getAvatarId()
-    {
-        return $this->avatarId;
-    }
-
-    /**
-     * Set trickId.
-     *
-     * @param int $trickId
-     *
-     * @return comment
-     */
-    public function setTrickId($trickId)
-    {
-        $this->trickId = $trickId;
-
-        return $this;
-    }
-
-    /**
-     * Get trickId.
-     *
-     * @return int
-     */
-    public function getTrickId()
-    {
-        return $this->trickId;
-    }
+  /**
+  * Get trickId.
+  *
+  * @return int
+  */
+  public function getTrick()
+  {
+    return $this->trick;
+  }
 }
