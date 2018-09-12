@@ -34,6 +34,17 @@
     margin-bottom: 25px;
 }
 
+.mini{
+  padding-left: 0;
+  padding-right: 0;
+}
+.miniature{
+  max-width: 100%;
+  min-height: 178px;
+  max-height: 178px;
+  border-radius: 4px;
+}
+
 .red{
     text-align: center;
     color: red;
@@ -62,6 +73,7 @@ input[type=text], input[type=password], input[type=email] {
     margin-left: 50%;
     transform: translateX(-50%);
 }
+
 .FormDescription{
     display: -webkit-flex;
     display: flex;
@@ -92,6 +104,16 @@ input[type=text], input[type=password], input[type=email] {
     vertical-align: middle;
 }
 
+.button-show-more{
+  text-align: center;
+  width: 100px;
+  margin-top: 25px;
+}
+
+.backgroundFirstImage{
+  background-color: white;
+  padding-bottom: 5px;
+}
 /* Style for desktop */
 
 @media only screen and (min-width: 668px)
@@ -137,20 +159,10 @@ input[type=text], input[type=password], input[type=email] {
         border-radius: 4px;
         background-color: white;
         opacity: 0.7;
-        background: url('../images/minitest.jpg');
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-size: contain;
         width: 285px;
         height: 200px;
+        z-index: 1;
     }
-
-    .minitest{
-
-        min-height: 178px;
-        border-radius: 4px;
-    }
-
 
     .header{
         background: url('../images/index2.jpg');
@@ -200,6 +212,18 @@ input[type=text], input[type=password], input[type=email] {
         padding-top: 5%;
         text-align: center;
         height:845px;
+    }
+
+    .trickForm{
+        padding-top: 5%;
+        text-align: center;
+        min-height: 900px;
+    }
+
+    #trick_videos>div, #trick_images>div {
+      text-align: center;
+      display : inline-block;
+      padding: 1em;
     }
 
     .FormDesktop{
@@ -308,17 +332,9 @@ input[type=text], input[type=password], input[type=email] {
         border-radius: 4px;
         background-color: white;
         opacity: 0.7;
-        background: url('../images/minitest.jpg');
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-size: contain;
         width: 285px;
         height: 200px;
-    }
-
-    .minitest{
-        min-height: 178px;
-        border-radius: 4px;
+        z-index: 1;
     }
 
     .form-input{
@@ -348,5 +364,24 @@ input[type=text], input[type=password], input[type=email] {
         border-color: #e7e7e7;
         background-color: #f8f8f8;
         font-size: 2em;
+    }
+
+    .trickForm{
+        font-size: 16px;
+        text-align: center;
+        width: auto;
+        margin: 10px 10px 10px 10px;
+        padding-bottom: 15px;
+    }
+
+    .FormContentImageMobile{
+      text-align: left;
+    }
+
+    #trick_videos>div, #trick_images>div {
+      text-align: center;
+      display : inline-block;
+      padding: 1em;
+      width: 250px;
     }
 }
