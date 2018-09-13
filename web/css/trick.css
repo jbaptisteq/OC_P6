@@ -193,6 +193,7 @@ span:hover{
     width: 285px;
     height: 200px;
     position: relative;
+    margin-bottom: 40px;
   }
 
   .trickContent{
