@@ -231,9 +231,6 @@ class Trick
     return $this->editDate;
   }
 
-
-
-
   /**
   * Set category
   *
@@ -275,5 +272,4 @@ class Trick
   {
     return $this->published;
   }
-
 }

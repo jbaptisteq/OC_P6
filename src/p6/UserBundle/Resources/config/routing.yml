@@ -1,7 +1,3 @@
-#p6CoreBundle:
-#    path:     /
-#    defaults: { _controller: p6CoreBundle:Default:index }
-
 index:
     path:    /
     defaults: { _controller: p6CoreBundle:Index:index }

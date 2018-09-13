@@ -26,8 +26,7 @@ class TrickController extends Controller
     $trick = new Trick();
     $form = $this->createForm(TrickType::class, $trick);
 
-
-    // 2) handle the submit (will only happen on POST)
+   // 2) handle the submit (will only happen on POST)
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
 
@@ -106,13 +105,11 @@ class TrickController extends Controller
         $this->addFlash('success', 'Trick Supprimé.');
 
         return $this->redirectToRoute('homepage');
-
       }
 
       $this->addFlash('alert', 'Erreur lors de la suppréssion du Trick');
 
       return $this->redirectToRoute('homepage');
-
     }
 
     return $this->render('p6CoreBundle:Trick:delete.html.twig', array(
@@ -132,7 +129,6 @@ class TrickController extends Controller
       $submittedToken = $request->request->get('token');
       if ($this->isCsrfTokenValid('delete-item', $submittedToken)) {
 
-
         $entityManager = $this->getDoctrine()->getManager();
         $image = $entityManager->getRepository('p6CoreBundle:Image')->find($id);
         $entityManager->remove($image);
@@ -143,10 +139,11 @@ class TrickController extends Controller
         return $this->redirectToRoute('trick', array('id' => $idtrick));
       }
       $this->addFlash('alert', 'Erreur lors de la suppréssion de l\'image.');
-      return $this->redirectToRoute('homepage');
 
+      return $this->redirectToRoute('homepage');
     }
     $this->addFlash('alert', 'Erreur lors de la suppréssion de l\'image .');
+
     return $this->redirectToRoute('homepage');
   }
 
@@ -161,7 +158,6 @@ class TrickController extends Controller
       $submittedToken = $request->request->get('token');
       if ($this->isCsrfTokenValid('delete-item', $submittedToken)) {
 
-
         $entityManager = $this->getDoctrine()->getManager();
         $video = $entityManager->getRepository('p6CoreBundle:Video')->find($id);
         $entityManager->remove($video);
@@ -172,14 +168,13 @@ class TrickController extends Controller
         return $this->redirectToRoute('trick', array('id' => $idtrick));
       }
       $this->addFlash('alert', 'Erreur lors de la suppréssion de la vidéo');
-      return $this->redirectToRoute('homepage');
 
+      return $this->redirectToRoute('homepage');
     }
     $this->addFlash('alert', 'Erreur lors de la suppréssion de la vidéo');
+
     return $this->redirectToRoute('homepage');
   }
-
-
 
   /**
   * @Route("/updateImage/{id}", name="updateImage")
@@ -192,10 +187,8 @@ class TrickController extends Controller
       $submittedToken = $request->request->get('token');
       if ($this->isCsrfTokenValid('update-item', $submittedToken)) {
 
-
         $entityManager = $this->getDoctrine()->getManager();
         $image = $entityManager->getRepository('p6CoreBundle:Image')->find($id);
-
 
         $newImage = $request->request->get('newImage');
         $image->setUrl($newImage);
@@ -206,10 +199,11 @@ class TrickController extends Controller
         return $this->redirectToRoute('trick', array('id' => $idtrick));
       }
       $this->addFlash('alert', 'Erreur lors de l\'édition de l\'image.');
-      return $this->redirectToRoute('homepage');
 
+      return $this->redirectToRoute('homepage');
     }
     $this->addFlash('alert', 'Erreur lors de l\'édition de l\'image.');
+
     return $this->redirectToRoute('homepage');
   }
 
@@ -235,13 +229,13 @@ class TrickController extends Controller
         $this->addFlash('success', 'Vidéo Modifiée');
 
         return $this->redirectToRoute('trick', array('id' => $idtrick));
-
       }
       $this->addFlash('alert', 'Erreur lors de la modification de la vidéo');
-      return $this->redirectToRoute('homepage');
 
+      return $this->redirectToRoute('homepage');
     }
     $this->addFlash('alert', 'Erreur lors de la modification de la vidéo');
+
     return $this->redirectToRoute('homepage');
   }
 

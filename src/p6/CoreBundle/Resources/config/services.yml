@@ -1,8 +1,4 @@
 services:
-#    p6_core.example:
-#        class: p6\CoreBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
-#
     p6\CoreBundle\DataFixtures\LoadTrick:
        tags: [doctrine.fixture.orm]
 

@@ -47,10 +47,10 @@ class Comment
   }
 
   /**
-     * @ORM\ManyToOne(targetEntity="p6\UserBundle\Entity\User", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
+  * @ORM\ManyToOne(targetEntity="p6\UserBundle\Entity\User", cascade={"persist"})
+  * @ORM\JoinColumn(nullable=false)
+  */
+  private $user;
 
   /**
   * Get id.

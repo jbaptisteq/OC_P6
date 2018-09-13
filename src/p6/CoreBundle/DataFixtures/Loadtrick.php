@@ -26,8 +26,6 @@ class LoadTrick extends Fixture
             array('name' => '720', 'description' => 'Le principe est d\'effectuer une rotation horizontale pendant le saut, puis d\'attérir en position switch ou normal.', 'category_id' => 2, 'published' => 1)
         );
 
-
-
         foreach ($list as $line) {
             $trick = new Trick();
             $trick->setName($line['name']);
