@@ -1,9 +1,9 @@
 index:
     resource: "@p6CoreBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix: /
 
 homepage:
-    path:    /
+    path: /
     defaults: {_controller: p6CoreBundle:Index:index}
 
 showMore:
@@ -11,7 +11,7 @@ showMore:
   defaults: {_controller: p6CoreBundle:Index:showMore}
 
 register:
-    path:     /register
+    path: /register
     defaults: {_controller: p6UserBundle:Registration:register}
 
 login:

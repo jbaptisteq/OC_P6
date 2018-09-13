@@ -12,12 +12,6 @@ security:
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        #in_memory:
-        #    memory:
-        #        users:
-        #            admin:
-        #                password: admin
-        #                roles: 'ROLE_ADMIN'
         main:
             entity:
                class:    p6\UserBundle\Entity\User

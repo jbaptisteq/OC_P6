@@ -61,7 +61,7 @@ class IndexController extends Controller
       $entityManager = $this->getDoctrine()->getManager();
       $trick = $entityManager->getRepository('p6CoreBundle:Trick')->find($id);
 
-      if(!isset($_SESSION['nbcomments'])){
+      if (!isset($_SESSION['nbcomments'])) {
         $_SESSION['nbcomments'] = 5;
         $comments = $entityManager->getRepository('p6UserBundle:Comment')->findBy(
           array('trick' => $trick ),
