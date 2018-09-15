@@ -6,6 +6,10 @@
  https://openclassrooms.com/paths/59-developpeur-dapplication-php-symfony
  ```
 
+## Quality Test :
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2b11123de9054fb08d3fedd8fd214d17)](https://www.codacy.com/app/jbaptisteq/OC_P6?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jbaptisteq/OC_P6&amp;utm_campaign=Badge_Grade)
+
 ## Languages used :
   html 5, CSS 3, Javascript, jQuery, PHP, MySQL
 
