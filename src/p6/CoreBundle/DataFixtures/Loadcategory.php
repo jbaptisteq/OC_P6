@@ -25,11 +25,9 @@ class LoadCategory extends Fixture
       // On crée la catégorie
       $category = new Category();
       $category->setName($name);
-
       // On la persiste
       $manager->persist($category);
     }
-
     // On déclenche l'enregistrement de toutes les catégories
     $manager->flush();
   }

@@ -35,7 +35,6 @@ class LoadTrick extends Fixture
             // Chargement de l'entitée Category pour respecter l'index en base de donnée
             $category = $manager->getRepository('p6CoreBundle:Category')->findOneBy(array('id' => $line['category_id']));
             $trick->setCategory($category);
-
             $manager->persist($trick);
         }
         $manager->flush();
