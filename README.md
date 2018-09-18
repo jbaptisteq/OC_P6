@@ -10,6 +10,25 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2b11123de9054fb08d3fedd8fd214d17)](https://www.codacy.com/app/jbaptisteq/OC_P6?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jbaptisteq/OC_P6&amp;utm_campaign=Badge_Grade)
 
+PhPUnit Test present in tests folder:
+```
+PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+
+..........................                                        26 / 26 (100%)
+
+Time: 5.49 seconds, Memory: 36.00MB
+
+OK (26 tests, 27 assertions)
+
+Remaining deprecation notices (2)
+
+  1x: Not setting "logout_on_user_change" to true on firewall "main" is deprecated as of 3.4, it will always be true in 4.0.
+    1x in CategoryTest::setUp from tests
+
+  1x: Doctrine\Common\ClassLoader is deprecated.
+    1x in CommentTest::testGetExistingComment from tests
+```
+
 ## Languages used :
   html 5, CSS 3, Javascript, jQuery, PHP, MySQL
 
