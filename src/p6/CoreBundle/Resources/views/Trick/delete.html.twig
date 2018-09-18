@@ -1,0 +1,48 @@
+{% extends "p6CoreBundle::layout.html.twig" %}
+{% block title %}Suppression - Gestion Trick{% endblock %}
+
+{% block body %}
+
+{% if is_granted('ROLE_USER') %}
+<div class="trickForm">
+  <br />
+  <h1>Suppression d'un Trick</h1>
+  {{ form_start(form) }}
+  <br />
+  <p>
+    Etes-vous certain de vouloir supprimer le Trick : "<strong>{{ trick.name }}</strong>" ?
+  </p>
+
+  <input type="hidden" name="token" value="{{ csrf_token('delete-item') }}" />
+
+  <input type="submit" value="Supprimer" class="btn btn-danger" />
+  {{ form_end(form) }}
+  <br />
+<div class ="trickForm">
+  <strong>{{trick.name}}</strong><br />
+  <p>{{trick.description}}</p>
+  {% if not trick.images.empty %}
+  {% for image in trick.images | slice(0,1) %}
+  <img class="trickblock" src="{{ asset(''|default('images/upload/'~image.url))}}" alt="{{trick.name}}"/>
+  {% endfor %}
+  {% else %}
+  <img class="trickblock" src="{{ asset('images/upload/default.jpg')}}" alt="{{trick.name}}"/>
+  {% endif %}
+</div>
+<br />
+</div>
+{% else %}
+<div class="trickForm">
+  <h1>Page non autorisée</h1>
+  <p><a href="{{ path('homepage') }}">Retour à l'acceuil</a></p><br />
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{{ asset('js/addVideo.js')}}"></script>
+<script src="{{ asset('js/addImage.js')}}"></script>
+{# Voici le script en question : #}
+{% endblock %}

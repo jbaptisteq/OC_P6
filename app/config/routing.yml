@@ -1,3 +1,78 @@
-p6CoreBundle:
+index:
     resource: "@p6CoreBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix: /
+
+homepage:
+    path: /
+    defaults: {_controller: p6CoreBundle:Index:index}
+
+showMore:
+  path: /showMore
+  defaults: {_controller: p6CoreBundle:Index:showMore}
+
+register:
+    path: /register
+    defaults: {_controller: p6UserBundle:Registration:register}
+
+login:
+    path: /login
+    defaults: {_controller: p6UserBundle:Security:login}
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /Logout
+    defaults: {_controller: p6CoreBundle:Index:index}
+
+register_validation:
+    path: /validate/token={token}
+    defaults: {_controller: p6UserBundle:Registration:validate}
+
+forget:
+    path: /forgot_password
+    defaults: {_controller: p6UserBundle:Security:forget}
+
+reset:
+    path: /reset_password/token={token}
+    defaults: {_controller: p6UserBundle:Security:reset}
+
+trick:
+  path: /trick/detail/{id}
+  defaults: {_controller: p6CoreBundle:Index:view}
+
+newTrick:
+  path: /newTrick
+  defaults : {_controller:p6CoreBundle:Trick:add}
+
+editTrick:
+  path: /editTrick/{id}
+  defaults: {_controller:p6CoreBundle:Trick:edit}
+
+deleteTrick:
+  path: /deleteTrick/{id}
+  defaults: {_controller:p6CoreBundle:Trick:delete}
+
+deleteImage:
+  path: /deleteImage/{idtrick}/{id}
+  defaults: {_controller:p6CoreBundle:Trick:deleteImage}
+
+deleteVideo:
+  path: /deleteVideo/{idtrick}/{id}
+  defaults: {_controller:p6CoreBundle:Trick:deleteVideo}
+
+updateImage:
+  path: /updateImage/{idtrick}/{id}
+  defaults: {_controller:p6CoreBundle:Trick:updateImage}
+
+updateVideo:
+  path: /updateVideo/{idtrick}/{id}
+  defaults: {_controller:p6CoreBundle:Trick:updateVideo}
+
+showMoreComment:
+  path: /showMoreComment/{id}
+  defaults: {_controller: p6CoreBundle:Trick:showMoreComment}
+
+addComment:
+  path: /addComment/{id}
+  defaults: {_controller: p6CoreBundle:Index:addComment}

@@ -1,0 +1,8 @@
+{# app/Resources/views/Emails/recup.html.twig #}
+<h3>Récupération de mot de passe sur SnowTricks!</h3>
+
+Bonjour {{ name }},<br />
+
+Pour changer votre mot de passe, cliquez sur : <a href="{{ url('reset', {'token': token }) }}">Changer mon mot de passe</a>.
+<br />
+Merci!

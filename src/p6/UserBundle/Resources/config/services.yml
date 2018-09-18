@@ -1,0 +1,8 @@
+services:
+    p6\UserBundle\Controller\RegistrationController:
+        autowire : true
+        tags: [controller.service_arguments]
+
+    p6\UserBundle\Controller\SecurityController:
+      autowire : true
+      tags: [controller.service_arguments]

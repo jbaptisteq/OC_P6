@@ -21,13 +21,36 @@
     padding-left: 3px;
 }
 
+.arrowtricks-up{
+    color: black;
+    font-size: 3em;
+    right: 0px;
+    bottom: 0px;
+    padding-left: 3px;
+}
+
 .nodec{
     list-style-type: none;
+}
+
+.logo-arrow{
+    padding-right: 5px;
 }
 
 #tricks{
     margin-top: 25px;
     margin-bottom: 25px;
+}
+
+.mini{
+  padding-left: 0;
+  padding-right: 0;
+}
+.miniature{
+  max-width: 100%;
+  min-height: 178px;
+  max-height: 178px;
+  border-radius: 4px;
 }
 
 .red{
@@ -39,10 +62,79 @@
     color: blue;
 }
 
+.loginForm{
+    font-family: merri, serif;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    border: none;
+    border-bottom: 1px solid #777;
+}
+
+.FormContent{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.FormDescription{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    align-content: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 150px;
+}
+
+.btn-custom{
+    color: black;
+    background-color: #f8f8f8;
+    border-color: #357ebd;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.button-show-more{
+  text-align: center;
+  width: 100px;
+  margin-top: 25px;
+}
+
+.backgroundFirstImage{
+  background-color: white;
+  padding-bottom: 5px;
+}
 /* Style for desktop */
+
+.mediaFrame>img{
+  min-height: 160px;
+  max-height: 160px;
+}
 
 @media only screen and (min-width: 668px)
 {
+    .navbar{
+        margin-bottom: 0px;
+    }
+
     .logo{
         font-size: 1.2em;
         font-weight: 600;
@@ -80,18 +172,10 @@
         border-radius: 4px;
         background-color: white;
         opacity: 0.7;
-        background: url('../images/minitest.jpg');
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-size: contain;
+        width: 285px;
+        height: 200px;
+        z-index: 1;
     }
-
-    .minitest{
-
-        min-height: 178px;
-        border-radius: 4px;
-    }
-
 
     .header{
         background: url('../images/index2.jpg');
@@ -129,7 +213,54 @@
         background-color: white;
         opacity: 0.7;
         margin-top: 10%;
+        color: #130E0A;
     }
+
+    .form-input{
+        margin-top: 30px;
+        font-size: 16px;
+    }
+
+    .loginForm{
+        padding-top: 5%;
+        text-align: center;
+        height:845px;
+    }
+
+    .trickForm{
+        padding-top: 5%;
+        text-align: center;
+        min-height: 900px;
+    }
+
+    #trick_videos>div, #trick_images>div {
+      text-align: center;
+      display : inline-block;
+      padding: 1em;
+    }
+
+    .FormDesktop{
+        border: solid black 1px;
+        padding-bottom: 10px;
+        margin-top: 30px;
+        height: 380px;
+        width: 350px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        padding-top: 20px;
+    }
+
+    .FormDesktopForget{
+        border: solid black 1px;
+        padding-bottom: 10px;
+        margin-top: 30px;
+        height: 200px;
+        width: 350px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        padding-top: 20px;
+    }
+
 
     .footer{
         min-height: 50px;
@@ -167,12 +298,16 @@
 
     .header{
         background: url('../images/indexsmall2.jpg');
-        height: 550px;
+        height: 525px;
         width: 100%;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: top center;
         position : relative;
         background-size: contain;
+    }
+
+    .headerNoBg{
+
     }
 
     .snowfond{
@@ -199,6 +334,7 @@
         background-color: white;
         opacity: 0.7;
         margin-top: 10%;
+        color: #130E0A;
     }
 
     .trickblock{
@@ -209,14 +345,27 @@
         border-radius: 4px;
         background-color: white;
         opacity: 0.7;
-        background: url('../images/minitest.jpg');
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-size: contain;
+        width: 285px;
+        height: 200px;
+        z-index: 1;
     }
-    .minitest{
-        min-height: 178px;
-        border-radius: 4px;
+
+    .form-input{
+        margin-top: 30px;
+        font-size: 12px;
+    }
+
+    .loginForm{
+        font-size: 16px;
+        text-align: center;
+        border: solid black 1px;
+        width: 250px;
+        margin: 30px 30px 30px 30px;
+        padding-bottom: 15px;
+    }
+
+    .loginForm>h1{
+        font-size: 16px;
     }
 
     .footer-bar{
@@ -228,5 +377,24 @@
         border-color: #e7e7e7;
         background-color: #f8f8f8;
         font-size: 2em;
+    }
+
+    .trickForm{
+        font-size: 16px;
+        text-align: center;
+        width: auto;
+        margin: 10px 10px 10px 10px;
+        padding-bottom: 15px;
+    }
+
+    .FormContentImageMobile{
+      text-align: left;
+    }
+
+    #trick_videos>div, #trick_images>div {
+      text-align: center;
+      display : inline-block;
+      padding: 1em;
+      width: 250px;
     }
 }

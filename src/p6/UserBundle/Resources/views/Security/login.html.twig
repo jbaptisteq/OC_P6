@@ -1,0 +1,38 @@
+{% extends "p6CoreBundle::layout.html.twig" %}
+{% block title %}SnowTricks - Connexion{% endblock %}
+
+{% block body %}
+
+<div class="loginForm merribold">
+    <h1>Login</h1>
+    <form action="{{ path('login_check') }}" method="post" class="FormDesktop">
+                <div class="form-input">
+            <label for="username">Username</label><br />
+            <input type="text" id="username" name="_username" value="{{ last_username }}" />
+        </div>
+        <div class="form-input">
+            <label for="password">Password</label><br />
+            <input type="password" id="password" name="_password" /><br />
+        </div>
+        <div class="form-input">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <p><a href="{{ path('forget') }}">Forgot Password ?</a></p><br />
+        </div>
+        <input type="submit" class="btn-custom" value="Login" />
+        {% for message in app.flashes('success') %}
+            <div class="flash-notice alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('danger') %}
+            <div class="flash-notice alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% if error %}
+        <div class="alert alert-danger">{{ error.message | replace({"Bad credentials." : "Username ou Password non valide"}) | replace({"User account is disabled." : "Compte non activé"})  }}</div>
+        {% endif %}
+    </form>
+</div>
+
+{% endblock %}

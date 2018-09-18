@@ -1,0 +1,24 @@
+{% extends "p6CoreBundle::layout.html.twig" %}
+{% block title %}SnowTricks - Forgot Password{% endblock %}
+
+{% block body %}
+
+<div class="loginForm">
+    <h1>Forgot Password</h1>
+    <form action="{{ path('forget') }}" method="post" class="FormDesktopForget">
+        <div class="form-input">
+            <label for="username merribold">Username</label><br />
+            <input type="text" id="username" name="username" value="" />
+        </div>
+        {% for message in app.flashes('sendReset') %}
+        <div class="flash-notice alert alert-success">
+          {{message}}
+        </div>
+        {% endfor %}
+        <div>
+            <input type="submit" class="btn-custom" value="Ask for reset" />
+        </div>
+    </form>
+</div>
+
+{% endblock %}

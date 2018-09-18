@@ -1,0 +1,23 @@
+{% extends "p6CoreBundle::layout.html.twig" %}
+{% block title %}SnowTricks - Enregistrement{% endblock %}
+
+{% block body %}
+
+<div class="loginForm">
+    <h1>Registration</h1>
+    {{ form_start(form, {'attr': {'class': 'FormDesktop'}}) }}
+    {{ form_row(form.username, {'attr': {'class': 'FormContent'}}) }}<br />
+    {{ form_row(form.email, {'attr': {'class': 'FormContent'}}) }}<br />
+    {{ form_row(form.Password, {'attr': {'class': 'FormContent'}}) }}<br />
+
+    <button type="submit" class="btn-custom">Create an account</button><br /><br />
+    <a href="{{ path('login') }}">Already an account ?</a>
+    {% for message in app.flashes('alerteToken') %}
+        <div class="flash-notice alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {{ form_end(form) }}
+
+</div>
+{% endblock %}

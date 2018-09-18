@@ -1,0 +1,51 @@
+{% extends "p6CoreBundle::layout.html.twig" %}
+{% block title %}Nouveau - Gestion Trick{% endblock %}
+
+{% block body %}
+
+{% if is_granted('ROLE_USER') %}
+<div class="trickForm">
+  <h1>Nouveau Trick</h1>
+  {{ form_start(form) }}
+  {{ form_row(form.name, {'attr': {'class': 'FormContent'}}) }}<br />
+  {{ form_row(form.description, {'attr': {'class': 'FormDescription'}}) }}<br />
+
+  {{ form_row(form.category, {'attr': {'class': 'FormContent'}}) }}<br />
+
+  {{ form_row(form.videos) }}<br />
+  <a href="#" id="add_video" class="btn btn-default">Ajouter une vidéo</a><br /><br />
+
+  {{ form_row(form.images, {'attr': {'class': 'FormContentImageMobile'}}) }}<br />
+  <a href="#" id="add_image" class="btn btn-default">Ajouter une image</a><br />
+
+  {{ form_row(form.enregistrer, {'attr': {'class': 'btn-custom'}}) }}<br />
+
+  {% for message in app.flashes('success') %}
+  <div class="flash-notice alert alert-success">
+    {{ message }}
+  </div>
+  {% endfor %}
+  {% for message in app.flashes('danger') %}
+  <div class="flash-notice alert alert-danger">
+    {{ message }}
+  </div>
+  {% endfor %}
+
+  {{ form_end(form) }}
+
+</div>
+{% else %}
+<div class="trickForm">
+  <h1>Page non autorisée</h1>
+  <p><a href="{{ path('homepage') }}">Retour à l'acceuil</a></p><br />
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{{ asset('js/addVideo.js')}}"></script>
+<script src="{{ asset('js/addImage.js')}}"></script>
+{# Voici le script en question : #}
+{% endblock %}
