@@ -138,9 +138,6 @@ class TrickController extends Controller
 
         return $this->redirectToRoute('trick', array('id' => $idtrick));
       }
-      $this->addFlash('alert', 'Erreur lors de la suppréssion de l\'image.');
-
-      return $this->redirectToRoute('homepage');
     }
     $this->addFlash('alert', 'Erreur lors de la suppréssion de l\'image .');
 
@@ -167,9 +164,6 @@ class TrickController extends Controller
 
         return $this->redirectToRoute('trick', array('id' => $idtrick));
       }
-      $this->addFlash('alert', 'Erreur lors de la suppréssion de la vidéo');
-
-      return $this->redirectToRoute('homepage');
     }
     $this->addFlash('alert', 'Erreur lors de la suppréssion de la vidéo');
 
@@ -198,9 +192,6 @@ class TrickController extends Controller
 
         return $this->redirectToRoute('trick', array('id' => $idtrick));
       }
-      $this->addFlash('alert', 'Erreur lors de l\'édition de l\'image.');
-
-      return $this->redirectToRoute('homepage');
     }
     $this->addFlash('alert', 'Erreur lors de l\'édition de l\'image.');
 
@@ -230,9 +221,6 @@ class TrickController extends Controller
 
         return $this->redirectToRoute('trick', array('id' => $idtrick));
       }
-      $this->addFlash('alert', 'Erreur lors de la modification de la vidéo');
-
-      return $this->redirectToRoute('homepage');
     }
     $this->addFlash('alert', 'Erreur lors de la modification de la vidéo');
 
