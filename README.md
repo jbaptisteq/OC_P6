@@ -32,11 +32,13 @@
   https://github.com/jbaptisteq/OC_P6/archive/master.zip
   ```
 
-  Execute Composer for Download Requirements
+  Download and execute Composer in project folder for install Requirements
   ```
-  php ../composer.phar update
+  https://getcomposer.org/
+  php /path/to/composer.phar update
   ```
 
+  Go to Project Root Folder
   Execute First line for checking database creation.
   Execute second line for create database
   ```
