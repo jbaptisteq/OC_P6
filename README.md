@@ -83,6 +83,11 @@
    password : admin
   ```
 
+  Docs
+  ```
+  Diagrams\aListOfDiagrams.md
+  ```
+
  ## Built with
  * [ATOM](https://atom.io/) - Code
  * [WAMP](http://www.wampserver.com/en/) - Database management
