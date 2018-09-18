@@ -116,12 +116,9 @@ class IndexController extends Controller
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($comment);
             $entityManager->flush();
-            
+
             return $this->redirectToRoute('trick', array('id' => $id));
           }
-          $this->addFlash('alert', 'Erreur lors de l\'envoi du commentaire');
-
-          return $this->redirectToRoute('homepage');
         }
         $this->addFlash('alert', 'Erreur lors de l\'envoi du commentaire');
 
